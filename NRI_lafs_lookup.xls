@@ -1,31 +1,4 @@
-
-
 	<TABLE border="1">
-	<TR>
-        <TD>Loc</TD>
-		<TD>Account</TD>
-		<TD>Fund</TD>
-		<TD>Sub</TD>
-		<TD>Lafs Begin Date</TD>
-		<TD>Lafs End Date</TD>
-		<TD>Lafs Open Trans Flag</TD>
-		<TD>Fin Department Code</TD>
-		<TD>Cp4 Code</TD>
-		<TD>Cp3 Code</TD>
-		<TD>Cp2 Code</TD>
-		<TD>Cp1 Code</TD>
-		<TD>Account Title</TD>
-		<TD>Fund Title</TD>
-		<TD>Laf Title</TD>
-		<TD>Prin Invest Last Name</TD>
-		<TD>Sponsor Desc</TD>
-		<TD>Fiscal Year	</TD>
-		<TD>Overhead base code	</TD>
-		<TD>Overhead base desc</TD>
-		<TD>Overhead rate</TD>
-
-	</TR>
-	
 	<TR>
 	    <TD align="left">8&nbsp;</TD>
 		<TD align="left">407470&nbsp;</TD>
