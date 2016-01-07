@@ -2,7 +2,12 @@
     <h2>Projects</h2>
     <ul>
         {% for project in projects %}
-            <li>{{ project.name }}</li>
+            <li>
+                <strong>{{ project.name }}</strong> ::
+                {{ project.fund.label }}-
+                {{ project.fund.account.label }}
+
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}
