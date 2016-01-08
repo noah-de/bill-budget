@@ -8,7 +8,7 @@ class Account(models.Model):
     max_length = 6,)
 
   def __str__(self):
-    return self.name
+    return self.label
 
 class Fund(models.Model):
   account = models.ForeignKey(Account)
@@ -18,7 +18,7 @@ class Fund(models.Model):
     max_length = 5,)
 
   def __str__(self):
-    return self.name
+    return self.label
 
 class Sub(models.Model):
   fund= models.ForeignKey(Fund)
@@ -26,6 +26,9 @@ class Sub(models.Model):
     default='',
     blank=True,
     max_length = 2,)
+
+  def __str__(self):
+    return self.label
 
 class Project(models.Model):
   name = models.CharField(
@@ -36,4 +39,7 @@ class Project(models.Model):
     max_length = 1,
     blank=True)
   fund = models.ForeignKey(Fund)
+
+  def __str__(self):
+    return self.name
 
