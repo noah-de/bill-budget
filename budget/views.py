@@ -4,6 +4,7 @@ from budget.models import Account, Fund, Sub, Project
 
 def index(request):
   projects = Project.objects.all()
-  context = { 'projects': projects }
+  accounts = Account.objects.all()
+  context = { 'accounts': accounts, 'projects': projects }
   return render(request, 'home.html', context)
 

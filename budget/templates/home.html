@@ -1,13 +1,12 @@
 {% block content %}
-    <h2>Budget</h2>
-    <ul>
-        {% for project in projects %}
-            <li>
-                <strong>{{ project.name }}</strong> ::
-                {{ project.fund.label }}-
-                {{ project.fund.account.label }}
+<h1>Budget</h1>
+{% for account in accounts%}
+<h2>{{ account.label }}</h2>
+<ul>
+    {% for fund in account.funds.all %}
+    <li>{{ fund }}</li>
+    {% endfor %}
+</ul>
+{% endfor %}
 
-            </li>
-        {% endfor %}
-    </ul>
 {% endblock %}
