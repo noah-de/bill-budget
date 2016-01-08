@@ -1,3 +1,9 @@
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bill.settings")
+import django
+django.setup()
+
+from budget.models import Account,Fund,Project, Sub
 from bs4 import BeautifulSoup
 from datetime import datetime
 
@@ -27,10 +33,12 @@ for tr in rows:
   if account not in accounts:
     print('making new account')
     accounts.append(account)
+    a = Account.objects.create(**{'label':account})
     funds = []
 
   if fund not in funds:
     print('making new fund')
+    Fund.objects.create(**{'label':fund, 'account':a}
     funds.append(fund)
 
   end_date = (datetime(int(end[:4]), int(end[4:6]), int(end[-2:])))
@@ -38,3 +46,4 @@ for tr in rows:
     print(elements[:6])
 
 # Loc,Account,Fund,Sub,Lafs Begin Date,Lafs End Date,Lafs Open Trans Flag,Fin Department Code,Cp4 Code,Cp3 Code,Cp2 Code,Cp1 Code,Account Title,Fund Title,Laf Title,Prin Invest Last Name,Sponsor Desc,Fiscal Year,Overhead base code,Overhead base desc,Overhead rate
+
