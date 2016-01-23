@@ -34,10 +34,6 @@ class Project(models.Model):
   name = models.CharField(
     default = '',
     max_length = 6,)
-  location = models.CharField(
-    default='',
-    max_length = 1,
-    blank=True)
   fund = models.ForeignKey(Fund)
 
   def __str__(self):
