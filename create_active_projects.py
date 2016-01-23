@@ -6,7 +6,7 @@ import django
 django.setup()
 
 from budget.models import Account,Fund,Project, Sub
-print('projects count:', Project.objects.count())
+print('projects count:', Project.objects.count(),"\n")
 
 def error(string, nums):
   print(" ERROR [",string,'-', nums,']')
@@ -24,7 +24,11 @@ with open('NRI_active_projects.txt', newline='') as f:
         if(f.count() == 1):
           """ fund exists """
           """ MAKE the project """
-          p = 1
+          p = Project()
+          p.fund=f
+          p.name="sdn32"
+          p.full_clean()
+          p.save()
         else:
           error("["+row[0]+"] fund("+row[2]+") does not exist on the account ("+row[1]+")" ,f.count())
 
@@ -40,3 +44,5 @@ with open('NRI_active_projects.txt', newline='') as f:
       does it have a matching fund?
       if so, create this project
       """
+
+print('projects count:', Project.objects.count(),"\n")
