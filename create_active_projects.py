@@ -8,14 +8,35 @@ django.setup()
 from budget.models import Account,Fund,Project, Sub
 print('projects count:', Project.objects.count())
 
+def error(string, nums):
+  print(" ERROR [",string,'-', nums,']')
+
 import csv
 with open('NRI_active_projects.txt', newline='') as f:
     reader = csv.reader(f)
     for row in reader:
-      print('project: ',row[0])
+      a = Account.objects.filter(label=row[1])
+      if(a.count() == 1):
+        """ account exists """
+        acc= a.last()
+        f = acc.funds.filter(label=str(row[2].zfill(5)))
+
+        if(f.count() == 1):
+          """ fund exists """
+          """ MAKE the project """
+          p = 1
+        else:
+          error("fund("+row[2]+") does not exist on the account ("+row[1]+")" ,f.count())
+
+      else:
+        """ account does not exist"""
+        error("account ("+row[2]+")",a.count())
+
+        print(row[4], ' ', row[1],'-',row[2].zfill(5), ' ', row[0], sep='')
+
+
       """ 
       look up account
       does it have a matching fund?
       if so, create this project
       """
-print ('hello')
