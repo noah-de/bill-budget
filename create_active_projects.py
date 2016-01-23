@@ -26,13 +26,13 @@ with open('NRI_active_projects.txt', newline='') as f:
           """ MAKE the project """
           p = 1
         else:
-          error("fund("+row[2]+") does not exist on the account ("+row[1]+")" ,f.count())
+          error("["+row[0]+"] fund("+row[2]+") does not exist on the account ("+row[1]+")" ,f.count())
 
       else:
         """ account does not exist"""
         error("account ("+row[2]+")",a.count())
 
-        print(row[4], ' ', row[1],'-',row[2].zfill(5), ' ', row[0], sep='')
+#        print(row[4], ' ', row[1],'-',row[2].zfill(5), ' ', row[0], sep='')
 
 
       """ 
