@@ -21,7 +21,7 @@ class Fund(models.Model):
     return self.label
 
 class Sub(models.Model):
-  fund= models.ForeignKey(Fund)
+  fund= models.ForeignKey(Fund, related_name='subs')
   label = models.CharField(
     default='',
     blank=True,
