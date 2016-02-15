@@ -38,9 +38,3 @@ class Project(models.Model):
 
   def __str__(self):
     return self.name
-
-class Project(models.Model):
-  name = models.TextField(default = '')
-
-  def __str__(self):
-    return self.name
